@@ -230,6 +230,9 @@ plt.grid(True)
 plt.show()
 
 
-
-
 print(f'Current portfolio value= {np.round(tot_portfolio_value[-1],2)} \n Current costs= {np.round(tot_portfolio_cost[-1],2)} \n Current returns= {np.round((tot_portfolio_value[-1]/tot_portfolio_cost[-1]-1)*100,4)}% \n Current profits {np.round(tot_portfolio_value[-1]-tot_portfolio_cost[-1],2)}')
+percentages = portfolio_value.iloc[-1,:] / np.sum(portfolio_value.iloc[-1,:])
+
+# Print each column name with its corresponding percentage
+for column_name, percentage in percentages.items():
+    print(f"Ratio {column_name}: {percentage*100:.2f}%")
